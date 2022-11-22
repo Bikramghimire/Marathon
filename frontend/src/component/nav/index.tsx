@@ -1,12 +1,12 @@
 import { HomeOutlined, LoginOutlined, UserOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 const items = [
   {
     label: "Home",
-    key: "Home",
+    key: "home",
     icon: <HomeOutlined />,
   },
   {
@@ -31,9 +31,15 @@ const Logo = styled.div`
   cursor: pointer;
 `;
 const Header = () => {
+  const navigate = useNavigate();
   const [current, setCurrent] = useState("mail");
   const onClick = (e: any) => {
     setCurrent(e.key);
+    if (e.key === "home") {
+      navigate("/");
+    } else {
+      navigate(`/${e.key}`);
+    }
   };
   return (
     <HeaderWrapper>
