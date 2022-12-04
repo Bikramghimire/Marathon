@@ -7,7 +7,11 @@ interface IPropsType {
   bg: string;
   color?: string;
   br?: string;
-  type?: string;
+  type: any;
+  buttontypes?: string;
+  open?: boolean;
+  setOpen?: (paa: boolean) => void;
+  size?: string;
 }
 
 const CustomButton: React.FC<IPropsType> = ({
@@ -17,12 +21,17 @@ const CustomButton: React.FC<IPropsType> = ({
   bg,
   color,
   br,
+  buttontypes,
   type,
+  open,
+  setOpen,
+  size,
 }) => {
   const ButtonStyle = styled.button`
     ${() =>
-      type === "outline"
+      buttontypes === "outline"
         ? `
+        width:${size}px;
     padding: ${paddingX}px ${paddingY}px;
     background-color: ${bg};
     color: ${color};
@@ -30,13 +39,15 @@ const CustomButton: React.FC<IPropsType> = ({
     border-radius: ${br}px;
     cursor: pointer;
     outline: none;
+    transition: all 0.2s linear;
     &:hover {
       color: ${bg};
       background: ${color};
       border-color: white;
-      transition: all 0.2s linear;
+     
     }`
         : `
+        width:${size}px;
         padding: ${paddingX}px ${paddingY}px;
         background-color: ${color};
         color: ${bg};
@@ -44,15 +55,23 @@ const CustomButton: React.FC<IPropsType> = ({
         border-radius: ${br}px;
         cursor: pointer;
         outline: none;
+        transition: all 0.2s linear;
         &:hover {
           color: ${color};
           background: ${bg};
           border:1px solid ${color}
-          transition: all 0.2s linear;
         }`}
   `;
+  const handleOpen = (open: boolean | undefined): void => {
+    console.log("tie is clicked");
+    setOpen?.(!open);
+  };
 
-  return <ButtonStyle>{children}</ButtonStyle>;
+  return (
+    <ButtonStyle type={type} onClick={() => handleOpen(open)}>
+      {children}
+    </ButtonStyle>
+  );
 };
 
 export default CustomButton;
