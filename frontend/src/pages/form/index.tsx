@@ -1,35 +1,9 @@
-import React, { useState } from "react";
-import CustomButton from "../../component/Button";
-import Forms from "../../component/Form";
+import { Formik } from "formik";
+import React from "react";
+import Step1 from "./step1";
+
 const Form = () => {
-  const [open, setOpen] = useState(false);
-  return (
-    <div>
-      <CustomButton
-        paddingX="10"
-        paddingY="20"
-        bg="white"
-        color="#664e96"
-        br="20"
-        type="contained"
-        open={open}
-        setOpen={setOpen}
-      >
-        Open Form
-      </CustomButton>
-      <CustomButton
-        paddingX="10"
-        paddingY="20"
-        bg="white"
-        color="#664e96"
-        br="20"
-        type="contained"
-      >
-        Open Form
-      </CustomButton>
-      {open ? <Forms setOpen={setOpen} /> : ""}
-    </div>
-  );
+  return <Step1 />;
 };
 
 export default Form;
