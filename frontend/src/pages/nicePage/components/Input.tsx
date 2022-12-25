@@ -1,6 +1,7 @@
 import React from "react";
 import { Input as InputField } from "antd";
 import { FieldInputProps, FormikProps } from "formik";
+import Error from "./error";
 
 const Input: React.FC<InputProps> = ({
   field: { name, value, onChange, onBlur, disabled },
@@ -8,7 +9,9 @@ const Input: React.FC<InputProps> = ({
   label,
   placeholder,
 }) => {
-  console.log("the value and values======", value, values);
+  console.log("the value and values======", errors, touched, submitCount);
+  const hasError = errors[name] && touched[name];
+
   return (
     <div>
       <label>{label}</label>
@@ -19,6 +22,7 @@ const Input: React.FC<InputProps> = ({
         onBlur={onBlur}
         value={value}
       />
+      {hasError && <Error message={errors && errors[name]} />}
     </div>
   );
 };
