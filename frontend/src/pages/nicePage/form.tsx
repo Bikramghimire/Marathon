@@ -13,18 +13,20 @@ const Form = () => {
       .required("Required"),
     email: Yup.string().email("Invalid email address").required("Required"),
   });
+  console.log("the state value=====", firstInitialValues);
   useEffect(() => {}, []);
   return (
     <Formik
       initialValues={firstInitialValues}
-      onSubmit={() => {
+      onSubmit={(values) => {
         console.log("this is the form triggered");
+        setFirstInitialValues(values);
       }}
       validationSchema={firstValidator}
     >
-      {() => {
+      {({ handleSubmit, values }) => {
         return (
-          <FormikForm>
+          <FormikForm onSubmit={handleSubmit}>
             <Field
               component={Input}
               name="name"
@@ -37,6 +39,7 @@ const Form = () => {
               label="Email"
               placeholder="pls write your email address"
             />
+            <button type="submit">submit</button>
           </FormikForm>
         );
       }}
