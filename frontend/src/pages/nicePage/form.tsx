@@ -2,11 +2,7 @@ import { Field, Formik, Form as FormikForm, ErrorMessage } from "formik";
 import React, { useEffect, useState } from "react";
 import Input from "./components/Input";
 import * as Yup from "yup";
-const Form = () => {
-  const [firstInitialValues, setFirstInitialValues] = useState({
-    name: "",
-    email: "",
-  });
+const Form = ({ firstInitialValues, setFirstInitialValues }: any) => {
   const firstValidator = Yup.object({
     name: Yup.string()
       .max(15, "Must be 15 characters or less")
@@ -20,6 +16,7 @@ const Form = () => {
       initialValues={firstInitialValues}
       onSubmit={(values) => {
         console.log("this is the form triggered");
+        alert(JSON.stringify(values));
         setFirstInitialValues(values);
       }}
       validationSchema={firstValidator}

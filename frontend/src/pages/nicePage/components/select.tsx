@@ -1,24 +1,21 @@
 import React from "react";
 import { Select } from "antd";
 
-// const handleChange = (value: string) => {
-//   console.log(`selected ${value}`);
-// };
-
 const SelectField: React.FC<InputProps> = ({
   field: { name, value, onChange, onBlur, disabled },
-  form: { errors, touched, submitCount, values },
+  form: { errors, touched, submitCount, values, setFieldValue },
   label,
   placeholder,
 }) => {
-  console.log("the values are=======", values);
+  const handleChange = (value: any) => {
+    setFieldValue(name, value);
+  };
   return (
     <>
       <Select
-        name={name}
         value={value}
         style={{ width: 120 }}
-        onChange={onChange}
+        onChange={handleChange}
         onBlur={onBlur}
         options={[
           {
