@@ -1,27 +1,33 @@
 import { Button } from "antd";
 import { Field, Form, Formik } from "formik";
-import React from "react";
-import Date from "../components/fields/DatePicker";
+import React, { useEffect } from "react";
+import DateField from "../components/fields/DatePicker";
 import InputField from "../components/fields/InputField";
 
 const AddEditForm = () => {
+  useEffect(() => {
+    fetch("http://localhost:3000/rentalHistory")
+      .then((resp) => resp.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log("the error===", err));
+  }, []);
   return (
     <Formik
-      initialValues={
-        {
-          // landlordName: "",
-          // landlordEmail: "",
-          // addressProperty: "",
-          // startingDate: "",
-          // endingDate: "",
-        }
-      }
-      onSubmit={() => {
-        alert("hello");
+      initialValues={{
+        landlordName: "",
+        landlordEmail: "",
+        addressProperty: "",
+        startingDate: "",
+        endingDate: "",
       }}
-      enableReinitialize
+      onSubmit={(values: any, { resetForm }) => {
+        alert("hello");
+        resetForm({ values: "" });
+      }}
+      enableReinitialize={true}
     >
-      {({ handleSubmit }) => {
+      {({ handleSubmit, resetForm, values }) => {
+        console.log("the values are====", values);
         return (
           <Form onSubmit={handleSubmit}>
             {fields
@@ -91,14 +97,14 @@ const fields = [
   {
     name: "startingDate",
     label: "StartingDate",
-    component: InputField,
+    component: DateField,
     placeholder: "please mention your start date",
     catergory: "rentalHistory",
   },
   {
     name: "endingDate",
     label: "Ending Date",
-    component: InputField,
+    component: DateField,
     placeholder: "please mention your end date",
     catergory: "rentalHistory",
   },

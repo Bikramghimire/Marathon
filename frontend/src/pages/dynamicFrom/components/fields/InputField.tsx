@@ -9,7 +9,7 @@ const Input: React.FC<InputProps> = ({
   label,
   placeholder,
 }) => {
-  console.log("the value and values======", values);
+  //   console.log("the value and values======", values);
   const hasError = errors[name] && touched[name];
 
   return (

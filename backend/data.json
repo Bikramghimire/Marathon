@@ -5,5 +5,55 @@
       "name": "user1",
       "email": "user1@testmail.com"
     }
+  ],
+  "rentalHistory": [
+    {
+      "id": 1,
+      "landlordName": "bikram ghimire",
+      "landlordEmail": "bikram@gmail.com",
+      "addressProperty": "itahari",
+      "startingDate": "dec-21",
+      "endingDate": "dec-21"
+    },
+    {
+      "id": 2,
+      "landlordName": "migos",
+      "landlordEmail": "migos@gmail.com",
+      "addressProperty": "dharan",
+      "startingDate": "may-21",
+      "endingDate": "may-21"
+    },
+    {
+      "id": 3,
+      "landlordName": "Baby keem",
+      "landlordEmail": "babykeem@gmail.com",
+      "addressProperty": "australia",
+      "startingDate": "may-21",
+      "endingDate": "may-21"
+    },
+    {
+      "id": 4,
+      "landlordName": "21 savages",
+      "landlordEmail": "savages@gmail.com",
+      "addressProperty": "australia",
+      "startingDate": "may-21",
+      "endingDate": "may-21"
+    },
+    {
+      "id": 5,
+      "landlordName": "jcole",
+      "landlordEmail": "j@gmail.com",
+      "addressProperty": "australia",
+      "startingDate": "may-21",
+      "endingDate": "may-21"
+    },
+    {
+      "id": 6,
+      "landlordName": "metro bommin",
+      "landlordEmail": "metro@gmail.com",
+      "addressProperty": "australia",
+      "startingDate": "may-21",
+      "endingDate": "may-21"
+    }
   ]
 }
