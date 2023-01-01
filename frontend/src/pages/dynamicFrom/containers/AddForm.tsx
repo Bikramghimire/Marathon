@@ -4,16 +4,10 @@ import React, { useEffect } from "react";
 import DateField from "../components/fields/DatePicker";
 import InputField from "../components/fields/InputField";
 
-const AddEditForm = () => {
+const AddEditForm = ({ rentalState }: any) => {
   return (
     <Formik
-      initialValues={{
-        landlordName: "",
-        landlordEmail: "",
-        addressProperty: "",
-        startingDate: "",
-        endingDate: "",
-      }}
+      initialValues={rentalState}
       onSubmit={(values: any, { resetForm }) => {
         alert("hello");
         fetch("http://localhost:3000/rentalHistory", {

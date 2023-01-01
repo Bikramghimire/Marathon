@@ -1,6 +1,11 @@
 import { DatePicker } from "antd";
 import React, { useState } from "react";
+
+import { ConfigProvider, TimePicker } from "antd";
+
 import dayjs from "dayjs";
+
+// import moment from "moment";
 
 const Date: React.FC<InputProps> = ({
   field: { name, value, onChange },
@@ -19,7 +24,7 @@ const Date: React.FC<InputProps> = ({
         onChange={handleChange}
         picker="month"
         format="YYYY/MM"
-        value={value}
+        value={value ? dayjs(value, "YYYY/MM") : null}
 
         // value={value}
       />
