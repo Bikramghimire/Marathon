@@ -5,12 +5,6 @@ import DateField from "../components/fields/DatePicker";
 import InputField from "../components/fields/InputField";
 
 const AddEditForm = () => {
-  useEffect(() => {
-    fetch("http://localhost:3000/rentalHistory")
-      .then((resp) => resp.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log("the error===", err));
-  }, []);
   return (
     <Formik
       initialValues={{
@@ -22,6 +16,14 @@ const AddEditForm = () => {
       }}
       onSubmit={(values: any, { resetForm }) => {
         alert("hello");
+        fetch("http://localhost:3000/rentalHistory", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        })
+          .then((res) => res.json())
+          .then((data) => console.log(data))
+          .catch((err) => console.log(err));
         resetForm({ values: "" });
       }}
       enableReinitialize={true}

@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Modal } from "antd";
+import dayjs from "dayjs";
 import React, { useEffect, useState } from "react";
 import DatePicker from "./components/fields/DatePicker";
 import InputField from "./components/fields/InputField";
@@ -60,9 +61,7 @@ const Dynamic = () => {
               <h3>{item.landlordName}</h3>
               <h3>{item.landlordEmail}</h3>
               <p>{item.propertyAddress}</p>
-              <p>
-                {item.startingDate}-{item.endingDate}
-              </p>
+              <>{dayjs(item.startingDate).format("YYYY-MM")}</>
             </div>
             <button>edit</button>
             <button>delete</button>
