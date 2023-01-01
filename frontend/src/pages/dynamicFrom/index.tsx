@@ -7,6 +7,7 @@ import InputField from "./components/fields/InputField";
 import AddEditForm from "./containers/AddForm";
 
 const Dynamic = () => {
+  const [formState, setFormState] = useState("");
   const [rentalHistoryData, setRentalHistoryData] = useState([]);
   const [rentalState, setRentalState] = useState({
     landlordName: "",
@@ -37,9 +38,19 @@ const Dynamic = () => {
 
   const handleCancel = () => {
     setIsModalOpen(false);
+    setRentalState({
+      landlordName: "",
+      landlordEmail: "",
+      addressProperty: "",
+      startingDate: "",
+      endingDate: "",
+    });
   };
   const callback = (id: number) => {
-    fetch(`http://localhost:3000/rentalHistory/${id}`)
+    fetch(`http://localhost:3000/rentalHistory/${id}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
       .then((res) => res.json())
       .then((data) => setRentalState(data))
       .catch((err) => console.log(err));
@@ -53,11 +64,22 @@ const Dynamic = () => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <AddEditForm rentalState={rentalState} />
+        <AddEditForm
+          rentalState={rentalState}
+          formState={formState}
+          handleCancel={handleCancel}
+        />
       </Modal>
 
       <h3>Rental History</h3>
-      <button onClick={showModal}>Add RentalHistory</button>
+      <button
+        onClick={() => {
+          showModal();
+          setFormState("addForm");
+        }}
+      >
+        Add RentalHistory
+      </button>
       {rentalHistoryData?.map((item: any) => {
         return (
           <div
@@ -78,7 +100,14 @@ const Dynamic = () => {
               <p>{item.propertyAddress}</p>
               <>{dayjs(item.startingDate).format("YYYY-MM")}</>
             </div>
-            <button onClick={() => callback(item.id)}>edit</button>
+            <button
+              onClick={() => {
+                callback(item.id);
+                setFormState("editForm");
+              }}
+            >
+              edit
+            </button>
             <button>delete</button>
           </div>
         );

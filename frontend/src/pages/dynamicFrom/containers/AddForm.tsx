@@ -4,21 +4,34 @@ import React, { useEffect } from "react";
 import DateField from "../components/fields/DatePicker";
 import InputField from "../components/fields/InputField";
 
-const AddEditForm = ({ rentalState }: any) => {
+const AddEditForm = ({ rentalState, formState, handleCancel }: any) => {
   return (
     <Formik
       initialValues={rentalState}
       onSubmit={(values: any, { resetForm }) => {
-        alert("hello");
-        fetch("http://localhost:3000/rentalHistory", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(values),
-        })
-          .then((res) => res.json())
-          .then((data) => console.log(data))
-          .catch((err) => console.log(err));
-        resetForm({ values: "" });
+        handleCancel();
+
+        if (formState === "addForm") {
+          fetch("http://localhost:3000/rentalHistory", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(values),
+          })
+            .then((res) => res.json())
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err));
+          resetForm({ values: "" });
+        } else {
+          fetch(`http://localhost:3000/rentalHistory/${values.id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(values),
+          })
+            .then((res) => res.json())
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err));
+          resetForm({ values: "" });
+        }
       }}
       enableReinitialize={true}
     >
@@ -40,7 +53,12 @@ const AddEditForm = ({ rentalState }: any) => {
                   </>
                 );
               })}
-            <button type="submit">Submit</button>
+
+            {formState === "editForm" ? (
+              <button type="submit">Edit</button>
+            ) : formState === "addForm" ? (
+              <button type="submit">Submit</button>
+            ) : null}
           </Form>
         );
       }}
