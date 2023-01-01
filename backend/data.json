@@ -12,116 +12,51 @@
       "landlordName": "bikram ghimire",
       "landlordEmail": "bikram@gmail.com",
       "addressProperty": "itahari",
-      "startingDate": "dec-21",
-      "endingDate": "dec-21"
+      "startingDate": "2023-02-01T08:35:10.199Z",
+      "endingDate": "2024-03-01T08:35:13.683Z"
     },
     {
       "id": 2,
       "landlordName": "migos",
       "landlordEmail": "migos@gmail.com",
       "addressProperty": "dharan",
-      "startingDate": "may-21",
-      "endingDate": "may-21"
-    },
-    {
-      "id": 3,
-      "landlordName": "Baby keem",
-      "landlordEmail": "babykeem@gmail.com",
-      "addressProperty": "australia",
-      "startingDate": "may-21",
-      "endingDate": "may-21"
-    },
-    {
-      "id": 4,
-      "landlordName": "21 savages",
-      "landlordEmail": "savages@gmail.com",
-      "addressProperty": "australia",
-      "startingDate": "may-21",
-      "endingDate": "may-21"
-    },
-    {
-      "id": 5,
-      "landlordName": "jcole",
-      "landlordEmail": "j@gmail.com",
-      "addressProperty": "australia",
-      "startingDate": "may-21",
-      "endingDate": "may-21"
-    },
-    {
-      "id": 6,
-      "landlordName": "metro bommin",
-      "landlordEmail": "metro@gmail.com",
-      "addressProperty": "australia",
-      "startingDate": "may-21",
-      "endingDate": "may-21"
-    },
-    {
-      "landlordName": "",
-      "landlordEmail": "",
-      "addressProperty": "",
-      "startingDate": "2023-02-01T03:37:19.659Z",
-      "endingDate": "2024-03-01T03:37:23.896Z",
-      "id": 7
+      "startingDate": "2023-02-01T08:35:10.199Z",
+      "endingDate": "2024-03-01T08:35:13.683Z"
     },
     {
       "landlordName": "bikram ghimire",
       "landlordEmail": "ikramghimire@gmail.comsdsdsd",
       "addressProperty": "",
-      "startingDate": "2023-02-01T03:37:19.659Z",
-      "endingDate": "2023-01-01T03:37:23.896Z",
+      "startingDate": "2023-02-01T08:35:10.199Z",
+      "endingDate": "2024-03-01T08:35:13.683Z",
       "propertyAddress": "imadol, lalitpurdsds",
-      "id": 8
-    },
-    {
-      "landlordName": "bikram ghimire",
-      "landlordEmail": "ikramghimire@gmail.comsdsdsd",
-      "addressProperty": "",
-      "startingDate": "2023-02-01T03:37:19.659Z",
-      "endingDate": "",
-      "propertyAddress": "imadol, lalitpurdsds",
-      "id": 9
-    },
-    {
-      "landlordName": "bikram ghimiresssdsdsds",
-      "landlordEmail": "ikramghimire@gmail.comsdsdsd",
-      "addressProperty": "",
-      "startingDate": "2021-01-01T03:37:19.659Z",
-      "endingDate": "2023-11-01T03:37:23.896Z",
-      "propertyAddress": "imadol, lalitpurdsds",
-      "id": 10
-    },
-    {
-      "landlordName": "bikram ghimire",
-      "landlordEmail": "ikramghimire@gmail.comsdsdsd",
-      "addressProperty": "",
-      "startingDate": "2021-02-01T03:37:19.659Z",
-      "endingDate": "2023-11-01T03:37:23.896Z",
-      "propertyAddress": "imadol, lalitpurdsds",
-      "id": 11
+      "id": 3
     },
     {
       "landlordName": "",
       "landlordEmail": "",
       "addressProperty": "",
-      "startingDate": "2023-03-01T04:44:04.190Z",
-      "endingDate": "2023-10-01T04:44:07.214Z",
-      "id": 12
+      "startingDate": "2023-02-01T08:55:09.986Z",
+      "endingDate": "2023-11-01T08:55:14.753Z",
+      "id": 4
     },
     {
-      "landlordName": "",
-      "landlordEmail": "",
+      "landlordName": "san holomfkmkamkfdasfasdf",
+      "landlordEmail": "sandervandijick@gmail.com",
       "addressProperty": "",
-      "startingDate": "2023-02-01T05:51:19.821Z",
-      "endingDate": "2023-11-01T05:51:26.276Z",
-      "id": 13
+      "startingDate": "2023-02-01T15:31:41.327Z",
+      "endingDate": "2021-01-01T15:31:44.051Z",
+      "propertyAddress": "netherland",
+      "id": 5
     },
     {
-      "landlordName": "",
-      "landlordEmail": "",
+      "landlordName": "bikash lama",
+      "landlordEmail": "ghimire@fndjsandf.dfnkajkf",
       "addressProperty": "",
-      "startingDate": "2017-01-01T05:51:19.821Z",
-      "endingDate": "2023-12-01T05:51:26.276Z",
-      "id": 14
+      "startingDate": "2014-12-31T18:15:00.000Z",
+      "endingDate": "2023-10-01T16:06:00.300Z",
+      "propertyAddress": "dutch",
+      "id": 6
     }
   ]
 }
