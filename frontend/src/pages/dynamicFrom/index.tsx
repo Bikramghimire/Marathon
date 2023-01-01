@@ -8,6 +8,13 @@ import AddEditForm from "./containers/AddForm";
 
 const Dynamic = () => {
   const [rentalHistoryData, setRentalHistoryData] = useState([]);
+  const [rentalState, setRentalState] = useState({
+    landlordName: "",
+    landlordEmail: "",
+    addressProperty: "",
+    startingDate: "",
+    endingDate: "",
+  });
   useEffect(() => {
     fetch("http://localhost:3000/rentalHistory")
       .then((resp) => resp.json())
@@ -17,6 +24,7 @@ const Dynamic = () => {
       })
       .catch((err) => console.log("the error===", err));
   }, []);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -30,6 +38,13 @@ const Dynamic = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+  const callback = (id: number) => {
+    fetch(`http://localhost:3000/rentalHistory/${id}`)
+      .then((res) => res.json())
+      .then((data) => setRentalState(data))
+      .catch((err) => console.log(err));
+    showModal();
+  };
   return (
     <div style={{ backgroundColor: "#A9A9A9", width: "100%", height: "100vh" }}>
       <Modal
@@ -38,7 +53,7 @@ const Dynamic = () => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <AddEditForm />
+        <AddEditForm rentalState={rentalState} />
       </Modal>
 
       <h3>Rental History</h3>
@@ -63,7 +78,7 @@ const Dynamic = () => {
               <p>{item.propertyAddress}</p>
               <>{dayjs(item.startingDate).format("YYYY-MM")}</>
             </div>
-            <button>edit</button>
+            <button onClick={() => callback(item.id)}>edit</button>
             <button>delete</button>
           </div>
         );
