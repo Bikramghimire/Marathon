@@ -1,5 +1,5 @@
-import { request } from "http";
 import React, { useState } from "react";
+import request from "../utils/request";
 
 const useAPI = (): [
   makeRequest: (config: any) => any,

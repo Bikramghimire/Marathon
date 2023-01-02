@@ -1,10 +1,13 @@
 import { Button } from "antd";
 import { Field, Form, Formik } from "formik";
 import React, { useEffect } from "react";
+import useAPI from "../../../hooks/api";
 import DateField from "../components/fields/DatePicker";
 import InputField from "../components/fields/InputField";
 
 const AddEditForm = ({ rentalState, formState, handleCancel }: any) => {
+  const [postRentalHistory, { data: post, loading }] = useAPI();
+  const [editRentalHistory, { data: edit, loading }] = useAPI();
   return (
     <Formik
       initialValues={rentalState}
@@ -12,24 +15,19 @@ const AddEditForm = ({ rentalState, formState, handleCancel }: any) => {
         handleCancel();
 
         if (formState === "addForm") {
-          fetch("http://localhost:3000/rentalHistory", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(values),
-          })
-            .then((res) => res.json())
-            .then((data) => console.log(data))
-            .catch((err) => console.log(err));
+          postRentalHistory({
+            method: "post",
+            url: "rentalHistory",
+            data: values,
+          });
+
           resetForm({ values: "" });
         } else {
-          fetch(`http://localhost:3000/rentalHistory/${values.id}`, {
-            method: "PATCH",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(values),
-          })
-            .then((res) => res.json())
-            .then((data) => console.log(data))
-            .catch((err) => console.log(err));
+          editRentalHistory({
+            method: "patch",
+            url: "rentalHistory",
+            data: values,
+          });
           resetForm({ values: "" });
         }
       }}
