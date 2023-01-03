@@ -2,13 +2,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Modal } from "antd";
 import dayjs from "dayjs";
 import React, { useEffect, useState } from "react";
+import useAPI from "../../hooks/api";
 import DatePicker from "./components/fields/DatePicker";
 import InputField from "./components/fields/InputField";
+import Spinners from "./components/fields/spinner";
+import makeRequest from "../../utils/request";
+
+// import Spinner from "./components/fields/Spinner";
 import AddEditForm from "./containers/AddForm";
 
 const Dynamic = () => {
   const [formState, setFormState] = useState("");
   const [rentalHistoryData, setRentalHistoryData] = useState([]);
+  const [getRentalHistory, { data: rentalHistory, loading }] = useAPI();
+  const [
+    getRentalHistoryByID,
+    { data: rentalHistoryById, loading: loadingid },
+  ] = useAPI();
   const [rentalState, setRentalState] = useState({
     landlordName: "",
     landlordEmail: "",
@@ -16,14 +26,15 @@ const Dynamic = () => {
     startingDate: "",
     endingDate: "",
   });
+
+  const handleGetRentalHistory = () => {
+    getRentalHistory({
+      method: "get",
+      url: "rentalHistory",
+    });
+  };
   useEffect(() => {
-    fetch("http://localhost:3000/rentalHistory")
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data);
-        setRentalHistoryData(data);
-      })
-      .catch((err) => console.log("the error===", err));
+    handleGetRentalHistory();
   }, []);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,14 +57,24 @@ const Dynamic = () => {
       endingDate: "",
     });
   };
-  const callback = (id: number) => {
-    fetch(`http://localhost:3000/rentalHistory/${id}`, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((data) => setRentalState(data))
-      .catch((err) => console.log(err));
+  const callback = async (id: number) => {
+    const config = { url: `rentalHistory/${id}` };
+    const res = await makeRequest(config);
+    setRentalState(res);
+    // getRentalHistoryByID({
+    //   method: "get",
+    //   url: `rentalHistory/${id}`,
+    // });
+    // if (!loadingid && rentalHistoryById) {
+    //   console.log("the id data is=====", rentalHistoryById);
+    // }
+    // fetch(`http://localhost:3000/rentalHistory/${id}`, {
+    //   method: "GET",
+    //   headers: { "Content-Type": "application/json" },
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => setRentalState(data))
+    //   .catch((err) => console.log(err));
     showModal();
   };
   return (
@@ -80,7 +101,8 @@ const Dynamic = () => {
       >
         Add RentalHistory
       </button>
-      {rentalHistoryData?.map((item: any) => {
+      {loading ? <Spinners /> : null}
+      {rentalHistory?.map((item: any) => {
         return (
           <div
             style={{

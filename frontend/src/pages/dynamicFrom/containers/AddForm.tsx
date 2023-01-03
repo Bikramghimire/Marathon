@@ -6,8 +6,8 @@ import DateField from "../components/fields/DatePicker";
 import InputField from "../components/fields/InputField";
 
 const AddEditForm = ({ rentalState, formState, handleCancel }: any) => {
-  const [postRentalHistory, { data: post, loading }] = useAPI();
-  const [editRentalHistory, { data: edit, loading }] = useAPI();
+  const [postRentalHistory, {}] = useAPI();
+  const [editRentalHistory, {}] = useAPI();
   return (
     <Formik
       initialValues={rentalState}
