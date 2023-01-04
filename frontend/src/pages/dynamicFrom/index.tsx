@@ -61,20 +61,6 @@ const Dynamic = () => {
     const config = { url: `rentalHistory/${id}` };
     const res = await makeRequest(config);
     setRentalState(res);
-    // getRentalHistoryByID({
-    //   method: "get",
-    //   url: `rentalHistory/${id}`,
-    // });
-    // if (!loadingid && rentalHistoryById) {
-    //   console.log("the id data is=====", rentalHistoryById);
-    // }
-    // fetch(`http://localhost:3000/rentalHistory/${id}`, {
-    //   method: "GET",
-    //   headers: { "Content-Type": "application/json" },
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => setRentalState(data))
-    //   .catch((err) => console.log(err));
     showModal();
   };
   return (

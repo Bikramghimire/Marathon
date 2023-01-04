@@ -9,6 +9,7 @@ import Layouts from "../component/layouts";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import Card from "../pages/Card";
+import AutoSearch from "../pages/debounce";
 import Dynamic from "../pages/dynamicFrom";
 import Form from "../pages/form";
 
@@ -26,6 +27,7 @@ export const router = createBrowserRouter(
         <Route path="/niceform" element={<NiceForm />} />
         <Route path="/card" element={<Card />} />
         <Route path="/dynamicform" element={<Dynamic />} />
+        <Route path="/debounce" element={<AutoSearch />} />
       </Route>
     </>
   )
