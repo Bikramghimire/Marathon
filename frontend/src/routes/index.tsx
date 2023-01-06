@@ -15,6 +15,7 @@ import Form from "../pages/form";
 
 import Home from "../pages/Home";
 import NiceForm from "../pages/nicePage";
+import { Reselect } from "../pages/reselect";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,7 @@ export const router = createBrowserRouter(
         <Route path="/card" element={<Card />} />
         <Route path="/dynamicform" element={<Dynamic />} />
         <Route path="/debounce" element={<AutoSearch />} />
+        <Route path="/reactselect" element={<Reselect />} />
       </Route>
     </>
   )
