@@ -16,6 +16,9 @@ import Form from "../pages/form";
 import Home from "../pages/Home";
 import NiceForm from "../pages/nicePage";
 import { Reselect } from "../pages/reselect";
+import Cloud from "../pages/useRef";
+import InputFocus from "../pages/useRef";
+import Reference from "../pages/useRef/unit1";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +33,7 @@ export const router = createBrowserRouter(
         <Route path="/dynamicform" element={<Dynamic />} />
         <Route path="/debounce" element={<AutoSearch />} />
         <Route path="/reactselect" element={<Reselect />} />
+        <Route path="/ref" element={<Cloud />} />
       </Route>
     </>
   )
