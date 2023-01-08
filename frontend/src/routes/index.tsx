@@ -6,7 +6,7 @@ import {
   Routes,
 } from "react-router-dom";
 import Layouts from "../component/layouts";
-import Login from "../pages/auth/signup";
+import Login from "../pages/auth/signin";
 import Register from "../pages/auth/Register";
 import Card from "../pages/Card";
 import AutoSearch from "../pages/debounce";
@@ -27,6 +27,7 @@ export const router = createBrowserRouter(
       <Route element={<Layouts />}>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/formik" element={<Form />} />
         <Route path="/niceform" element={<NiceForm />} />
