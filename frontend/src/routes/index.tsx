@@ -6,7 +6,7 @@ import {
   Routes,
 } from "react-router-dom";
 import Layouts from "../component/layouts";
-import Login from "../pages/auth/Login";
+import Login from "../pages/auth/signup";
 import Register from "../pages/auth/Register";
 import Card from "../pages/Card";
 import AutoSearch from "../pages/debounce";
@@ -19,13 +19,14 @@ import { Reselect } from "../pages/reselect";
 import Cloud from "../pages/useRef";
 import InputFocus from "../pages/useRef";
 import Reference from "../pages/useRef/unit1";
+import Signup from "../pages/auth/signup";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route element={<Layouts />}>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/register" element={<Register />} />
         <Route path="/formik" element={<Form />} />
         <Route path="/niceform" element={<NiceForm />} />
