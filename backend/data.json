@@ -83,5 +83,24 @@
       "propertyAddress": "Numquam voluptas min",
       "id": 10
     }
+  ],
+  "educationalHistory": [
+    {
+      "id": 1,
+      "school": "SOS Hermann Gmeiner",
+      "field": "Computer Science",
+      "address": "itahari",
+      "startDate": "",
+      "endDate": ""
+    },
+
+    {
+      "id": 2,
+      "school": "German School",
+      "field": "Metro Boomin",
+      "address": "Dharan",
+      "startDate": "",
+      "endDate": ""
+    }
   ]
 }

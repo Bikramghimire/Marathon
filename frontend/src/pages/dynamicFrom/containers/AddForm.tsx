@@ -13,7 +13,6 @@ const AddEditForm = ({ rentalState, formState, handleCancel }: any) => {
       initialValues={rentalState}
       onSubmit={(values: any, { resetForm }) => {
         handleCancel();
-
         if (formState === "addForm") {
           postRentalHistory({
             method: "post",
