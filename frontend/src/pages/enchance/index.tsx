@@ -24,11 +24,11 @@ const Enchance = () => {
   };
   const fetchEducationHistory = async () => {
     const resData = await axios.get("http://localhost:3000/educationalHistory");
-    return resData;
+    console.log("the data is ===", resData.data);
+    setEducationalHistory(resData.data);
   };
   useEffect(() => {
-    const data = fetchEducationHistory();
-    setEducationalHistory(data);
+    fetchEducationHistory();
   }, []);
   return (
     <Container>

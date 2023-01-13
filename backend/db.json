@@ -1,19 +1,106 @@
 {
-  "posts": [
+  "users": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "user1",
+      "email": "user1@testmail.com"
     }
   ],
-  "comments": [
+  "rentalHistory": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "landlordName": "bikram ghimiresssdsdsds",
+      "landlordEmail": "ghimire@fndjsandf.dfnkajkf",
+      "addressProperty": "itahari",
+      "startingDate": "2023-02-01T08:35:10.199Z",
+      "endingDate": "2024-03-01T08:35:13.683Z",
+      "propertyAddress": "dutch"
+    },
+    {
+      "id": 2,
+      "landlordName": "migos",
+      "landlordEmail": "migos@gmail.com",
+      "addressProperty": "dharan",
+      "startingDate": "2023-02-01T08:35:10.199Z",
+      "endingDate": "2024-03-01T08:35:13.683Z"
+    },
+    {
+      "landlordName": "bikram ghimire",
+      "landlordEmail": "ikramghimire@gmail.comsdsdsd",
+      "addressProperty": "",
+      "startingDate": "2023-02-01T08:35:10.199Z",
+      "endingDate": "2024-03-01T08:35:13.683Z",
+      "propertyAddress": "imadol, lalitpurdsds",
+      "id": 3
+    },
+    {
+      "landlordName": "",
+      "landlordEmail": "",
+      "addressProperty": "",
+      "startingDate": "2023-02-01T08:55:09.986Z",
+      "endingDate": "2023-11-01T08:55:14.753Z",
+      "id": 4
+    },
+    {
+      "landlordName": "san holomfkmkamkfdasfasdf",
+      "landlordEmail": "sandervandijick@gmail.com",
+      "addressProperty": "",
+      "startingDate": "2023-02-01T15:31:41.327Z",
+      "endingDate": "2021-01-01T15:31:44.051Z",
+      "propertyAddress": "netherland",
+      "id": 5
+    },
+    {
+      "landlordName": "bikash lama",
+      "landlordEmail": "ghimire@fndjsandf.dfnkajkf",
+      "addressProperty": "",
+      "startingDate": "2014-12-31T18:15:00.000Z",
+      "endingDate": "2023-10-01T16:06:00.300Z",
+      "propertyAddress": "dutch",
+      "id": 6
+    },
+    {
+      "landlordName": "Francesca Humphrey",
+      "landlordEmail": "tefomeciv@mailinator.com",
+      "addressProperty": "",
+      "startingDate": "2023-01-02T16:34:13.816Z",
+      "endingDate": "2023-11-02T16:34:16.213Z",
+      "propertyAddress": "Minim animi qui est",
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "landlordName": "Yen Flores",
+      "landlordEmail": "pununyl@mailinator.com",
+      "addressProperty": "",
+      "startingDate": "",
+      "endingDate": "",
+      "propertyAddress": "Numquam voluptas min",
+      "id": 10
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "educationalHistory": [
+    {
+      "id": 1,
+      "school": "SOS Hermann Gmeiner",
+      "field": "Computer Science",
+      "address": "itahari",
+      "startDate": "",
+      "endDate": ""
+    },
+
+    {
+      "id": 2,
+      "school": "German School",
+      "field": "Metro Boomin",
+      "address": "Dharan",
+      "startDate": "",
+      "endDate": ""
+    }
+  ]
 }
