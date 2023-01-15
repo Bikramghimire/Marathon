@@ -87,16 +87,16 @@
   "educationalHistory": [
     {
       "id": 1,
-      "school": "SOS Hermann Gmeiner",
-      "field": "Computer Science",
-      "address": "itahari",
+      "school": "oooooooooooooooooooooo",
+      "field": "oooooooooooooooooooooo",
+      "address": "oooooooooooooooo",
       "startDate": "",
       "endDate": ""
     },
     {
       "id": 2,
-      "school": "German School",
-      "field": "Metro Boomin",
+      "school": "German Schoolnfvsdnjfnvsd",
+      "field": "Metro Boominnjabdfnsabf",
       "address": "Dharan",
       "startDate": "",
       "endDate": ""
@@ -121,6 +121,12 @@
       "field": "bhhhhgfdrfghj",
       "address": "dutch",
       "id": 7
+    },
+    {
+      "id": 8,
+      "school": "ddd",
+      "field": "ddd",
+      "address": "791sssss"
     }
   ]
 }

@@ -13,29 +13,47 @@ const Container = styled.div`
 const Enchance = () => {
   const [educationalHistory, setEducationalHistory] = useState([]);
   const [educationState, setEducationalState] = useState({
+    id: "",
     school: "",
     field: "",
     address: "",
   });
   const [formState, setFormState] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleSubmits = async (values: any, id: any) => {
+  const handleSubmits = async (values: any) => {
     setIsModalOpen(false);
     console.log("the values===", values);
-    await axios.post("http://localhost:3000/educationalHistory", values);
+    if (values.id) {
+      await axios.patch(
+        `http://localhost:3000/educationalHistory/${values.id}`,
+        values
+      );
+    } else {
+      await axios.post("http://localhost:3000/educationalHistory", values);
+    }
     fetchEducationHistory();
   };
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-  const handleAddClick = () => {
-    setFormState("add");
+  const handleAddEditClick = async (id: any) => {
+    if (id === undefined) {
+      setFormState("add");
+      setEducationalState({
+        id: "",
+        school: "",
+        field: "",
+        address: "",
+      });
+    }
+    if (id) {
+      setFormState("edit");
+      const data = await axios.get(
+        `http://localhost:3000/educationalHistory/${id}`
+      );
+      console.log("the data is===", data);
+      setEducationalState(data.data);
+    }
     setIsModalOpen(true);
   };
-  const handleEditClick = () => {
-    setFormState("edit");
-    setIsModalOpen(true);
-  };
+
   const fetchEducationHistory = async () => {
     const resData = await axios.get("http://localhost:3000/educationalHistory");
     console.log("the data is ===", resData.data);
@@ -47,26 +65,11 @@ const Enchance = () => {
   return (
     <Container>
       <h4>EducationalHistory</h4>
-      <Button onClick={handleAddClick}>ADD</Button>
+      <Button onClick={() => handleAddEditClick(undefined)}>ADD</Button>
       <Modal
         title="add/delete/edit"
         open={isModalOpen}
-        onCancel={handleCancel}
-        // onOk={handleOk}
-        // footer={[
-        //   formState === "add" ? (
-        //     <Button key="submit" type="primary" onClick={handleAddClick}>
-        //       ADD
-        //     </Button>
-        //   ) : (
-        //     <Button key="submit" type="primary" onClick={handleEditClick}>
-        //       EDIT
-        //     </Button>
-        //   ),
-        //   <Button key="submit" type="primary" onClick={handleCancel}>
-        //     Cancel
-        //   </Button>,
-        // ]}
+        onCancel={() => setIsModalOpen(false)}
       >
         <AddEditForm
           educationState={educationState}
@@ -82,7 +85,7 @@ const Enchance = () => {
               <p>{item.field}</p>
               <p>{item.address}</p>
             </div>
-            <button onClick={handleEditClick}>edit</button>
+            <button onClick={() => handleAddEditClick(item.id)}>edit</button>
           </div>
         );
       })}
