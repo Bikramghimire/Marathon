@@ -19,6 +19,12 @@ const Enchance = () => {
   });
   const [formState, setFormState] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleSubmits = async (values: any, id: any) => {
+    setIsModalOpen(false);
+    console.log("the values===", values);
+    await axios.post("http://localhost:3000/educationalHistory", values);
+    fetchEducationHistory();
+  };
   const handleCancel = () => {
     setIsModalOpen(false);
   };
@@ -47,22 +53,26 @@ const Enchance = () => {
         open={isModalOpen}
         onCancel={handleCancel}
         // onOk={handleOk}
-        footer={[
-          formState === "add" ? (
-            <Button key="submit" type="primary" onClick={handleAddClick}>
-              ADD
-            </Button>
-          ) : (
-            <Button key="submit" type="primary" onClick={handleEditClick}>
-              EDIT
-            </Button>
-          ),
-          <Button key="submit" type="primary" onClick={handleCancel}>
-            Cancel
-          </Button>,
-        ]}
+        // footer={[
+        //   formState === "add" ? (
+        //     <Button key="submit" type="primary" onClick={handleAddClick}>
+        //       ADD
+        //     </Button>
+        //   ) : (
+        //     <Button key="submit" type="primary" onClick={handleEditClick}>
+        //       EDIT
+        //     </Button>
+        //   ),
+        //   <Button key="submit" type="primary" onClick={handleCancel}>
+        //     Cancel
+        //   </Button>,
+        // ]}
       >
-        <AddEditForm educationState={educationState} formState={formState} />
+        <AddEditForm
+          educationState={educationState}
+          formState={formState}
+          handleSubmits={handleSubmits}
+        />
       </Modal>
       {educationalHistory?.map((item: any) => {
         return (

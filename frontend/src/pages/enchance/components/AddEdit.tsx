@@ -5,12 +5,14 @@ import useAPI from "../../../hooks/api";
 import Input from "./InputField";
 import Date from "./DatePicker";
 
-const AddEditForm = ({ educationState, formState }: any) => {
+const AddEditForm = ({ educationState, formState, handleSubmits }: any) => {
   return (
     <Formik
       initialValues={educationState}
       onSubmit={(values: any, { resetForm }) => {
         // handleCancel();
+        handleSubmits(values);
+        resetForm();
       }}
       enableReinitialize={true}
     >
@@ -31,11 +33,11 @@ const AddEditForm = ({ educationState, formState }: any) => {
               );
             })}
 
-            {/* {formState === "editForm" ? (
+            {formState === "edit" ? (
               <button type="submit">Edit</button>
-            ) : formState === "addForm" ? (
+            ) : formState === "add" ? (
               <button type="submit">Submit</button>
-            ) : null} */}
+            ) : null}
           </Form>
         );
       }}
@@ -47,22 +49,22 @@ export default AddEditForm;
 
 const fields = [
   {
-    name: "landlordName",
-    label: "LandLordName",
+    name: "school",
+    label: "school",
     component: Input,
     placeholder: "please mention your user name",
     catergory: "rentalHistory",
   },
   {
-    name: "landlordEmail",
-    label: "LandLordEmail",
+    name: "field",
+    label: "field",
     component: Input,
     placeholder: "please mention your email",
     catergory: "rentalHistory",
   },
   {
-    name: "propertyAddress",
-    label: "PropertyAddress",
+    name: "address",
+    label: "address",
     component: Input,
     placeholder: "please mention your date",
     catergory: "rentalHistory",
