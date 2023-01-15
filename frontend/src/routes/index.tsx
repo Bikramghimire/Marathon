@@ -20,6 +20,7 @@ import Cloud from "../pages/useRef";
 import InputFocus from "../pages/useRef";
 import Reference from "../pages/useRef/unit1";
 import Signup from "../pages/auth/signup";
+import Enchance from "../pages/enchance";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,6 +37,7 @@ export const router = createBrowserRouter(
         <Route path="/debounce" element={<AutoSearch />} />
         <Route path="/reactselect" element={<Reselect />} />
         <Route path="/ref" element={<Cloud />} />
+        <Route path="/enhance" element={<Enchance />} />
       </Route>
     </>
   )
