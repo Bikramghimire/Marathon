@@ -43,7 +43,7 @@ const Enchance = () => {
         address: "",
       });
     }
-    if (id) {
+    else {
       setFormState("edit");
       const data = await axios.get(
         `http://localhost:3000/educationalHistory/${id}`
