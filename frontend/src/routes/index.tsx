@@ -23,6 +23,7 @@ import Signup from "../pages/auth/signup";
 import Enchance from "../pages/enchance";
 import Moment from "../pages/moment";
 import Flex from "../pages/flex";
+import Reusable from "../pages/reusable";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -42,6 +43,7 @@ export const router = createBrowserRouter(
         <Route path="/enhance" element={<Enchance />} />
         <Route path="/moment" element={<Moment />} />
         <Route path="/flex" element={<Flex></Flex>} />
+        <Route path="/reusable" element={<Reusable />} />
       </Route>
     </>
   )
