@@ -24,6 +24,7 @@ import Enchance from "../pages/enchance";
 import Moment from "../pages/moment";
 import Flex from "../pages/flex";
 import Reusable from "../pages/reusable";
+import Tabing from "../pages/tabs";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -44,6 +45,7 @@ export const router = createBrowserRouter(
         <Route path="/moment" element={<Moment />} />
         <Route path="/flex" element={<Flex></Flex>} />
         <Route path="/reusable" element={<Reusable />} />
+        <Route path="/tab" element={<Tabing />} />
       </Route>
     </>
   )
