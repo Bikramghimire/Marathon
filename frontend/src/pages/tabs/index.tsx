@@ -1,8 +1,8 @@
 import React from "react";
 import { Tabs } from "antd";
 import BasicInfo from "./BasicInfo";
-import Location from "./Location";
 import Other from "./Other";
+import Location from "./Location";
 
 const onChange = (key: string) => {
   console.log(key);
